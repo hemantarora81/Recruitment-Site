@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/438.59be53dc.chunk.js","mappings":"mJAEA,MAMA,EANeA,KAEXC,EAAAA,EAAAA,KAAA,OAAAC,SAAK,U","sources":["pages/HRPage.jsx"],"sourcesContent":["import React from 'react'\r\n\r\nconst HRPage = () => {\r\n  return (\r\n    <div>HRPage</div>\r\n  )\r\n}\r\n\r\nexport default HRPage"],"names":["HRPage","_jsx","children"],"sourceRoot":""}
