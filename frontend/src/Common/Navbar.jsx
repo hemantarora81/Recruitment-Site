@@ -8,9 +8,10 @@ const Navbar = () => {
     <nav className="bg-gradient-to-r from-[#496f8b] to-[#000000]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-12">
-          <div className="flex items-center">
-            <Link to="/" className="text-white text-xl font-bold">
+        <div className="flex flex-col items-start">
+            <Link to="/" className="text-white text-2xl font-bold leading-tight">
               Recruitment
+              <span className="block text-xs text-right bg-gradient-to-r from-indigo-500 w-full">We help you grow</span>
             </Link>
           </div>
           <div className="hidden md:block">

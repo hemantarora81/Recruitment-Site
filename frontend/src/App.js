@@ -2,12 +2,14 @@ import React, { Suspense } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './Common/Navbar';
 import Loading from './Common/Loader';
+import './App.css'
 // Lazy load the components
 const Home = React.lazy(() => import('./pages/Home'));
 const JobSeekerPage = React.lazy(() => import('./pages/JobSeekerPage'));
 const HRPage = React.lazy(() => import('./pages/HRPage'));
 const NotFound = React.lazy(() => import('./pages/NotFound'));
-
+const JobSeekerForm = React.lazy(() => import('./components/JobSeeker/JobSeekerForm'))
+const HRSignupLogin = React.lazy(() => import('./components/HR/HRSignupLogin'));
 function App() {
   return (
     <Router>
@@ -16,7 +18,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/job-seeker" element={<JobSeekerPage />} />
+          <Route path="/candidate-form" element={<JobSeekerForm />} />
           <Route path="/hr" element={<HRPage />} />
+          <Route path="/hr-form" element={<HRSignupLogin />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>
