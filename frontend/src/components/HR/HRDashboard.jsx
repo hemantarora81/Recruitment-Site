@@ -5,7 +5,7 @@ import CandidateList from './HR Dashboard/CandidateList';
 
 const HRDashboard = () => {
   return (
-    <div className="min-h-screen bg-gray-100 p-2">
+    <div className="container min-h-screen bg-gray-100 p-2">
       <DashboardOverview />
       <SearchFilterSort />
       <CandidateList />

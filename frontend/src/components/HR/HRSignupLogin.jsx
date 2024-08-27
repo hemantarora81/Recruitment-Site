@@ -82,7 +82,7 @@ const HRSignupLogin = () => {
               </form>
                 }
               <div className="form-section">
-                {isLogin?
+                {!isLogin?
                 <p >Don't have an account? <b onClick={()=>setIsLogin(!isLogin)} className='cursor-pointer'>Sign Up</b> </p>
                   :
                   <p>Have an account? <b onClick={()=>setIsLogin(!isLogin)} className='cursor-pointer'>Log in</b> </p>
