@@ -11,8 +11,8 @@ const Home = () => {
     <h1 className="text-4xl font-bold text-black">Simplify Your Hiring Process or Job Search!</h1>
     <p className="mt-4 text-xl text-black">Easily upload your resume or find top candidates.</p>
     <div className="mt-6 flex justify-center">
-      <a href="#CTA" className="bg-white text-blue-500 px-4 py-2 rounded-md mr-4 hover:bg-blue-500 hover:text-white  transition-all duration-300 ease-in-out hover:scale-110 hover:shadow-xl">For Job Seekers</a>
-      <a href="#CTA" className="bg-white text-red-500 px-4 py-2 rounded-md hover:bg-red-500 hover:text-white transition-all duration-300 ease-in-out hover:scale-110 hover:shadow-xl">For HR</a>
+      <a href="#CTACAND" className="bg-white text-blue-500 px-4 py-2 rounded-md mr-4 hover:bg-blue-500 hover:text-white  transition-all duration-300 ease-in-out hover:scale-110 hover:shadow-xl">For Job Seekers</a>
+      <a href="#CTAHR" className="bg-white text-red-500 px-4 py-2 rounded-md hover:bg-red-500 hover:text-white transition-all duration-300 ease-in-out hover:scale-110 hover:shadow-xl">For HR</a>
     </div>
   </div>
 </section>
@@ -22,12 +22,12 @@ const Home = () => {
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <h2 className="text-3xl font-bold text-center">How It Works</h2>
     <div className="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
-      <div className="text-center" id='CTA'>
+      <div className="text-center" id='CTACAND'>
         <svg className="mx-auto rotate-90 h-12 w-10 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19V6l-7 7 7 7zM15 6l7 7-7 7" /></svg>
         <h3 className="text-lg font-semibold">For Job Seekers</h3>
         <p className="mt-2">Fill out the form, upload your resume, and wait for HRs to contact you.</p>
       </div>
-      <div className="text-center">
+      <div className="text-center" id='CTAHR'>
         
         <svg className="mx-auto rotate-90 h-12 w-10 text-red-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19V6l-7 7 7 7zM15 6l7 7-7 7" /></svg>
         <h3 className="text-lg font-semibold">For HRs</h3>

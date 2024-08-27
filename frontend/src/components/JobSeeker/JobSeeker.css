@@ -1,14 +1,11 @@
-/* From Uiverse.io by mi-series */ 
 .job-form {
-    position: relative;
-    max-width: 500px;
-    width: 100%;
-    background: #fbfbfb;
-    padding: 25px;
-    border-radius: 8px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-    margin: 10px auto;
-  }
+  max-width: 470px;
+  margin: 14px auto;
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
   
   .job-form header {
     font-size: 1.2rem;
@@ -16,18 +13,19 @@
     font-weight: 600;
     text-align: center;
   }
-  
-  .job-form .form {
-    margin-top: 15px;
+  .form{
+    padding: 10px;
   }
-  
   .form .input-box {
     width: 100%;
-    margin-top: 10px;
+    text-align: left;
   }
   
   .input-box label {
     color: #000;
+    font-size: 12px;
+    font-weight: 500;
+    white-space: nowrap;
   }
   
   .form :where(.input-box input, .select-box) {
@@ -53,9 +51,7 @@
     column-gap: 15px;
   }
   
-  .form .gender-box {
-    margin-top: 10px;
-  }
+ 
   
   .form :where(.gender-option, .gender) {
     display: flex;
@@ -96,6 +92,9 @@
   
   .form button {
     height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     color: #fff;
     font-size: 1rem;
@@ -112,3 +111,33 @@
     --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
   }
   
+  @media (max-width: 640px) {
+    .job-form {
+      padding: 15px;
+    }
+    .input-box label {
+      font-size: 0.875rem;
+    }
+    .input-box input,
+    .input-box select {
+      font-size: 0.875rem;
+    }
+    .form button {
+      font-size: 0.875rem;
+    }
+    .form .gender-box {
+      white-space: wrap;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .job-form {
+      padding: 20px;
+    }
+    .form .grid {
+      display: block;
+    }
+    .form .gender-box {
+      white-space: wrap;
+    }
+  }

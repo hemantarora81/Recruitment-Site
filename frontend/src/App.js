@@ -10,6 +10,7 @@ const HRPage = React.lazy(() => import('./pages/HRPage'));
 const NotFound = React.lazy(() => import('./pages/NotFound'));
 const JobSeekerForm = React.lazy(() => import('./components/JobSeeker/JobSeekerForm'))
 const HRSignupLogin = React.lazy(() => import('./components/HR/HRSignupLogin'));
+const HRDashboard = React.lazy(() => import('./components/HR/HRDashboard'));
 function App() {
   return (
     <Router>
@@ -21,7 +22,9 @@ function App() {
           <Route path="/candidate-form" element={<JobSeekerForm />} />
           <Route path="/hr" element={<HRPage />} />
           <Route path="/hr-form" element={<HRSignupLogin />} />
+          <Route path="/hr-dashboard" element={<HRDashboard/>} />
           <Route path="*" element={<NotFound />} />
+
         </Routes>
       </Suspense>
     </Router>

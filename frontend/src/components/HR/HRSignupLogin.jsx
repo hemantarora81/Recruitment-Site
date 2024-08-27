@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './HRLogin.css'
 const HRSignupLogin = () => {
+  const [isLogin,setIsLogin] = useState(false);
   const [errors, setErrors] = useState({
     firstname: '',
     lastname: '',
@@ -57,19 +58,36 @@ const HRSignupLogin = () => {
 
   return (
     <div className='container-custom p-3'>
-              <div class="form-box ">
-              <form class="form">
-                  <span class="title">Sign up</span>
-                  <span class="subtitle">Create a free account with your email.</span>
-                  <div class="form-container">
-                    <input type="text" class="input" placeholder="Full Name"/>
-                    <input type="email" class="input" placeholder="Email"/>
-                    <input type="password" class="input" placeholder="Password"/>
+              <div className="form-box ">
+                {isLogin?
+              <form className="form">
+                  <span className="title">Sign up</span>
+                  <span className="subtitle">Create a free account with your email.</span>
+                  <div className="form-container">
+                    <input type="text" className="input" placeholder="Full Name"/>
+                    <input type="number" className="input" placeholder="Mobile Number"/>
+                    <input type="email" className="input" placeholder="Email"/>
+                    <input type="password" className="input" placeholder="Password"/>
                   </div>
-                  <button>Sign up</button>
+                  <button  onClick={()=>(alert("Signup Clicked"))}>Sign up</button>
               </form>
-              <div class="form-section">
-                <p>Have an account? <a href="">Log in</a> </p>
+              :
+              <form className="form">
+                  <span className="title">Login</span>
+                  <div className="form-container">
+                    <input type="email" className="input" placeholder="Email"/>
+                    <input type="password" className="input" placeholder="Password"/>
+                  </div>
+                  <button onClick={()=>(alert("Login Clicked"))}>Login</button>
+              </form>
+                }
+              <div className="form-section">
+                {isLogin?
+                <p >Don't have an account? <b onClick={()=>setIsLogin(!isLogin)} className='cursor-pointer'>Sign Up</b> </p>
+                  :
+                  <p>Have an account? <b onClick={()=>setIsLogin(!isLogin)} className='cursor-pointer'>Log in</b> </p>
+
+                }
               </div>
               </div>
 
