@@ -21,34 +21,52 @@
 
 // db.js
 
-const { MongoClient, ServerApiVersion } = require('mongodb');
-const dotenv = require('dotenv');
+// const { MongoClient, ServerApiVersion } = require('mongodb');
+// const dotenv = require('dotenv');
 
-dotenv.config(); // Load environment variables
+// dotenv.config(); // Load environment variables
 
-const uri = process.env.MONGO_URI;
+// const uri = process.env.MONGO_URI;
 
-// Create a MongoClient with a MongoClientOptions object to set the Stable API version
-const client = new MongoClient(uri, {
-  serverApi: {
-    version: ServerApiVersion.v1,
-    strict: true,
-    deprecationErrors: true,
-  }
-});
+// // Create a MongoClient with a MongoClientOptions object to set the Stable API version
+// const client = new MongoClient(uri, {
+//   serverApi: {
+//     version: ServerApiVersion.v1,
+//     strict: true,
+//     deprecationErrors: true,
+//   }
+// });
+
+// const connectDB = async () => {
+//   try {
+//     // Connect the client to the server (optional starting in v4.7)
+//     await client.connect();
+//     // Send a ping to confirm a successful connection
+//     await client.db("admin").command({ ping: 1 });
+//     console.log("Pinged your deployment. You successfully connected to MongoDB!");
+//   } catch (error) {
+//     console.error("MongoDB connection error:", error);
+//     process.exit(1); // Exit process with failure
+//   }
+// };
+
+// module.exports = connectDB;
+
+const mongoose = require('mongoose');
 
 const connectDB = async () => {
   try {
-    // Connect the client to the server (optional starting in v4.7)
-    await client.connect();
-    // Send a ping to confirm a successful connection
-    await client.db("admin").command({ ping: 1 });
-    console.log("Pinged your deployment. You successfully connected to MongoDB!");
+    // Log the MongoDB URI for debugging
+    // console.log(process.env.MONGO_URI, "process.env.MONGO_URI");
+
+    // Connect to the database
+    await mongoose.connect('mongodb+srv://arorahemant75:dc289DgNgAp27vUK@recruitdata.c3qxp.mongodb.net/?retryWrites=true&w=majority&appName=RecruitData');
+
+    console.log('Database connected!');
   } catch (error) {
-    console.error("MongoDB connection error:", error);
-    process.exit(1); // Exit process with failure
+    console.error('MongoDB connection error:', error);
+    process.exit(1);
   }
 };
 
 module.exports = connectDB;
-

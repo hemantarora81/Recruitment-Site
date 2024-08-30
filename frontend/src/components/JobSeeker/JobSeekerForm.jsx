@@ -1,11 +1,12 @@
 import React, { useState } from "react";
+import axios from "axios";
 import "./JobSeeker.css";
 import Alert from "../../Common/Alerts/Alert";
 const JobSeekerForm = () => {
   const [alertMessage, setAlertMessage] = useState("");
   const [alertType, setAlertType] = useState("");
-  const [formData, setFormData] = useState({
-    fullname: "",
+  const [data, setData] = useState({
+    fullName: "",
     email: "",
     mobile: "",
     qualification: "",
@@ -14,47 +15,95 @@ const JobSeekerForm = () => {
     gender: "",
     resume: null,
   });
-console.log(formData,"formData")
+  // console.log(process.env.REACT_APP_BASE_URL,"process.env.REACT_APP_BASE_URL")
+// console.log(formData,"formData")
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
+    setData({
+      ...data,
       [name]: value,
     });
   };
 
   const handleFileChange = (e) => {
-    setFormData({
-      ...formData,
+    setData({
+      ...data,
       resume: e.target.files[0],
     });
   };
 
-  const validateForm = async (event) => {
-    event.preventDefault();
-    const { fullname, email, mobile, qualification, resume } = formData;
+//   const validateForm = async (event) => {
+//     event.preventDefault();
+//     const { fullName, email, mobile, qualification, resume } = data;
 
-    if (!fullname || !email || !mobile || !qualification || !resume) {
-      alert("All fields are required!");
-      return;
-    }
-  console.log(formData,"formDataIn")
-  //   const data = new FormData();
-  // Object.keys(formData).forEach((key) => {
-  //     data.append(key, formData[key]);
-  //   });
-  //     console.log(data,"FormDataSendData");
-    // try {
-    //   const response = await axios.post(
-    //     "http://localhost:5000/api/jobseekers",
-    //     data
-    //   );
-    //   alert("Form submitted successfully!");
-    // } catch (error) {
-    //   alert("There was an error submitting the form. Please try again.");
-    //   console.error(error);
-    // }
-  };
+//     if (!fullName || !email || !mobile || !qualification || !resume) {
+//       alert("All fields are required!");
+//       return;
+//     }
+
+//     const formData = new FormData();
+//     Object.keys(data).forEach((key) => {
+//       data.append(key, data[key]);
+//     });
+// console.log(data,"Append")
+//     // Logging FormData contents
+//     for (let pair of data.entries()) {
+//         console.log(`${pair[0]}: ${pair[1]}`);
+//     }
+
+//     try {
+//       const response = await axios.post(
+//         "/api/jobseeker", 
+//         data, // Pass the FormData object here
+//         {
+//           headers: {
+//             "Content-Type": "multipart/form-data",
+//           },
+//         }
+//       );
+//       console.log(response,"response")
+//       setAlertMessage("Form submitted successfully!");
+//       setAlertType("success");
+//     } catch (error) {
+//       setAlertMessage("There was an error submitting the form. Please try again.");
+//       setAlertType("error");
+//       console.error(error);
+//     }
+//   };
+const validateForm = (e) => {
+  e.preventDefault();
+  const formData = new FormData();
+  formData.append('fullName', data?.fullName);
+  formData.append('email', data?.email);
+  formData.append('mobile', data?.mobile);
+  formData.append('qualification', data?.qualification);
+  formData.append('designation', data?.designation);
+  formData.append('resume', data?.resume);
+  formData.append('gender', data?.gender);
+  formData.append('experience', data?.experience);
+console.log(formData,"formData")
+  axios({
+      method: 'POST',
+      url: "http://localhost:5000/api/jobseeker",
+      data: formData,
+      headers: {
+          'Content-Type': 'multipart/form-data', // Ensure correct content type
+      },
+  })
+  .then(response => {
+      
+      if (response.status === 201) { 
+       setAlertMessage(response.data.message);
+      setAlertType("success");
+      }
+  })
+  .catch(error => {
+    console.log(error,"error")
+    setAlertMessage(error.response.statusText);
+    setAlertType("error");
+      // console.error('Error:', error);
+  });
+};
   return (
     <section className="job-form shadow-blue-200 shadow-md p-5 rounded-md">
       {alertMessage && (
@@ -63,14 +112,14 @@ console.log(formData,"formData")
       <header className="text-lg font-semibold text-center mb-5">
         Registration Form
       </header>
-      <form className="form space-y-0" >
+      <div className="form space-y-0">
         <div className="input-box">
           <label className="block mb-1">
             Full Name<span className="text-red-600">*</span>
           </label>
           <input
-           name="fullname"
-           value={formData.fullname || ''}
+           name="fullName"
+           value={data.fullName || ''}
            onChange={handleInputChange}
            placeholder="Enter full name"
            type="text"
@@ -84,7 +133,7 @@ console.log(formData,"formData")
             </label>
             <input
               name="mobile"
-              value={formData.mobile || ''}
+              value={data.mobile || ''}
               onChange={handleInputChange}
               placeholder="Enter phone number"
               type="tel"
@@ -97,7 +146,7 @@ console.log(formData,"formData")
             </label>
             <input
                name="email"
-               value={formData.email || ''}
+               value={data.email || ''}
                onChange={handleInputChange}
                placeholder="Enter Email"
                type="email"
@@ -113,7 +162,7 @@ console.log(formData,"formData")
             <select
               required
               name="qualification"
-              value={formData.qualification || null}
+              value={data.qualification || ''}
               onChange={handleInputChange}
               className="w-full p-2 border border-gray-300 rounded-md"
             >
@@ -132,7 +181,7 @@ console.log(formData,"formData")
             <select
               required
               name="experience"
-              value={formData.experience || null}
+              value={data.experience || ''}
               onChange={handleInputChange}
               className="w-full p-2 border border-gray-300 rounded-md"
             >
@@ -154,7 +203,7 @@ console.log(formData,"formData")
             <input
               required
               name="designation"
-              value={formData.designation || ''}
+              value={data.designation || ''}
               onChange={handleInputChange}
               placeholder="Enter Designation"
               type="text"
@@ -168,7 +217,7 @@ console.log(formData,"formData")
           <select
             required
             name="gender"
-            value={formData.gender || null}
+            value={data.gender || ''}
             onChange={handleInputChange}
             className=" p-2 border border-gray-300 rounded-md w-full"
           >
@@ -192,10 +241,10 @@ console.log(formData,"formData")
           />
         </div>
      
-        <button type="submit" className="w-full py-2 text-white bg-gradient-to-r from-blue-500 to-blue-700 rounded-md hover:from-blue-600 hover:to-blue-800 transition-all duration-300" onClick={(e) =>validateForm(e) }>
+        <button className="w-full py-2 text-white bg-gradient-to-r from-blue-500 to-blue-700 rounded-md hover:from-blue-600 hover:to-blue-800 transition-all duration-300" onClick={(e)=>validateForm(e)} >
           Submit
         </button>
-      </form>
+      </div>
     </section>
   );
 };

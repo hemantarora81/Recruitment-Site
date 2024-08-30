@@ -1,17 +1,14 @@
 const mongoose = require('mongoose');
 
 const jobSeekerSchema = new mongoose.Schema({
-    fullname: String,
-    email: String,
-    mobile: String,
-    qualification: String,
-    experience: String,
-    designation: String,
-    gender: String,
-    resume: Object
+    fullName: { type: String, required: true },
+    email: { type: String, required: true },
+    mobile: { type: String, required: true },
+    qualification: { type: String, required: true },
+    experience: { type: String },
+    designation: { type: String },
+    gender: { type: String },
+    resume: { type: String, required: true }
 });
 
-const JobSeeker = mongoose.model('JobSeeker', jobSeekerSchema);
-
-module.exports = JobSeeker;
-
+module.exports = mongoose.model('JobSeeker', jobSeekerSchema);
