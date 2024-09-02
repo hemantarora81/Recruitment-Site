@@ -81,7 +81,7 @@ const JobSeekerForm = () => {
     formData.append("resume", data?.resume);
     formData.append("gender", data?.gender);
     formData.append("experience", data?.experience);
-    console.log(formData, "formData");
+    // console.log(formData, "formData");
     axios({
       method: "POST",
       url: "http://localhost:5000/api/jobseeker",
@@ -91,10 +91,12 @@ const JobSeekerForm = () => {
       },
     })
       .then((response) => {
-        if (response.status === 201) {
-          setAlertMessage(response.data.message);
+        console.log(response, "response");
+        if (response.status === 200) {
+          setAlertMessage(response.data.msg);
           setAlertType("success");
         }
+        window.scrollTo(0,0)
       })
       .catch((error) => {
         console.log(error, "error");
