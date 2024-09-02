@@ -10,7 +10,7 @@ const Alert = ({ message, type }) => {
 
   return (
     <div
-      className={`flex items-center p-4 mb-4 text-sm border rounded-lg ${alertTypes[type]}`}
+      className={`flex items-center p-4  text-sm border rounded-lg ${alertTypes[type]}`}
       role="alert"
     >
       <svg

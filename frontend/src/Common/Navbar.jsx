@@ -96,7 +96,7 @@ const Navbar = () => {
                 <Link to="/hr-dashboard/profile" className="text-white hover:bg-blue-800 block px-3 py-2 rounded-md text-base font-medium">
                   Profile Settings
                 </Link>
-                <Link to="/logout" className="text-white hover:bg-blue-800 block px-3 py-2 rounded-md text-base font-medium">
+                <Link to="/" className="text-white hover:bg-blue-800 block px-3 py-2 rounded-md text-base font-medium">
                   Logout
                 </Link>
               </>
