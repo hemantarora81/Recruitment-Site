@@ -33,7 +33,7 @@ const HRSignupLogin = () => {
     e.preventDefault();
     const url = isLogin 
     ? `${process.env.REACT_APP_BASE_URL}/login` 
-    : `/${process.env.REACT_APP_BASE_URL}register`;
+    : `/${process.env.REACT_APP_BASE_URL}/register`;
   
   const formData = isLogin 
     ? { email: data.email, password: data.password } 
