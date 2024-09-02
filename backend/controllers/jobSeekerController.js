@@ -20,8 +20,8 @@ exports.jobSeeker = async (req, res) => {
     await newJobSeeker.save();
     // console.log(newJobSeeker, "newJobSeekernewJobSeeker");
     res
-      .status(201)
-      .json({ message: "Job Seeker information saved successfully." });
+      .status(200)
+      .json({ msg: "Job Seeker information saved successfully." });
     // res.success(true).json({ message: 'Job Seeker information saved successfully.' });
   } catch (error) {
     console.error("Error:", error); // Log detailed error

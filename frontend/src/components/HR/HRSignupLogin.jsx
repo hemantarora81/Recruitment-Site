@@ -18,7 +18,7 @@ const HRSignupLogin = () => {
 
   // Set for Valid Email Value
   const validEmail = (email) => {
-    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email.toLowerCase());
   };
 
@@ -58,10 +58,11 @@ const HRSignupLogin = () => {
       },
     })
       .then((response) => {
-        console.log(response,"response")
+        // console.log(response,"response")
         if (response.status === 200) {
           // console.log(response.data.msg,"response.data.msg")
           setAlertMessage(response.data.msg?response.data.msg:"Login Successfully");
+          window.scrollTo(0,0)
           localStorage.setItem("token",response.data.token);
           localStorage.setItem("user_id",response.data.user._id);
           setAlertType("success");
@@ -88,7 +89,7 @@ const HRSignupLogin = () => {
         <div className="form">
           <span className="title">{isLogin ? 'Login' : 'Sign up'}</span>
           <span className="subtitle">{!isLogin && 'Create a free account with your email.'}</span>
-         {alertMessage!=='' && <Alert message={alertMessage} type={alertType} />}
+         {alertMessage && <Alert message={alertMessage} type={alertType} />}
 
           <div className="form-container">
             {!isLogin && (
