@@ -32,8 +32,8 @@ const HRSignupLogin = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const url = isLogin 
-    ? "http://localhost:5000/api/login" 
-    : "http://localhost:5000/api/register";
+    ? `${process.env.REACT_APP_BASE_URL}/login` 
+    : `/${process.env.REACT_APP_BASE_URL}register`;
   
   const formData = isLogin 
     ? { email: data.email, password: data.password } 
