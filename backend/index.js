@@ -1,7 +1,9 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
 const connectDB = require('./config/db'); 
+const authRoutes = require('./routes/authRoutes'); 
 const jobSeekerRoutes = require('./routes/jobSeekerRoutes'); 
 const bodyParser = require('body-parser')
 
@@ -12,6 +14,7 @@ connectDB(); // Call the connectDB function to establish a connection
 app.use(cors())
 app.options('*', cors());
 app.use(express.json()); 
+app.use('/api', authRoutes);
 app.use('/api', jobSeekerRoutes);
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())

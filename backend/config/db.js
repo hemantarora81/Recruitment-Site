@@ -57,10 +57,10 @@ const mongoose = require('mongoose');
 const connectDB = async () => {
   try {
     // Log the MongoDB URI for debugging
-    // console.log(process.env.MONGO_URI, "process.env.MONGO_URI");
+   // console.log(process.env.MONGO_URI, "process.env.MONGO_URI");
 
     // Connect to the database
-    await mongoose.connect('mongodb+srv://arorahemant75:dc289DgNgAp27vUK@recruitdata.c3qxp.mongodb.net/?retryWrites=true&w=majority&appName=RecruitData');
+    await mongoose.connect(process.env.MONGO_URI);
 
     console.log('Database connected!');
   } catch (error) {

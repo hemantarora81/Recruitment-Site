@@ -1,9 +1,8 @@
 const cloudinary = require("cloudinary");
-
 cloudinary.config({
-  cloud_name: "easyrecruitnew",
-  api_key: "687393133859291",
-  api_secret: "G2gqPmNMS_o9mEuXuTAPf0xqoOo",
+  cloud_name: process.env.cloud_name,
+  api_key: process.env.api_key,
+  api_secret: process.env.api_secret,
 });
 
 module.exports = cloudinary;
