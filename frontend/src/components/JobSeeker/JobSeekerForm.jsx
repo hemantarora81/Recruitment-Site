@@ -15,6 +15,8 @@ const JobSeekerForm = () => {
     gender: "",
     resume: null,
   });
+  console.log(process.env.REACT_APP_BASE_URL,"process.env.REACT_APP_BASE_URL")
+
   // console.log(process.env.REACT_APP_BASE_URL,"process.env.REACT_APP_BASE_URL")
   // console.log(formData,"formData")
   const handleInputChange = (e) => {
@@ -84,7 +86,7 @@ const JobSeekerForm = () => {
     // console.log(formData, "formData");
     axios({
       method: "POST",
-      url: "http://localhost:5000/api/jobseeker",
+      url: `${process.env.REACT_APP_BASE_URL}/jobseeker`,
       data: formData,
       headers: {
         "Content-Type": "multipart/form-data", // Ensure correct content type
@@ -100,7 +102,7 @@ const JobSeekerForm = () => {
       })
       .catch((error) => {
         console.log(error, "error");
-        setAlertMessage(error.response.statusText);
+        setAlertMessage("Error while creating Account!");
         setAlertType("error");
         // console.error('Error:', error);
       });
