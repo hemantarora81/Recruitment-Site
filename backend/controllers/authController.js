@@ -4,18 +4,18 @@ const User = require('../models/User');
 
 // Register User
 exports.registerUser = async (req, res) => {
-  const { fullname, mobileNumber, email, password } = req.body;
+  const { fullName, mobileNumber, email, password } = req.body;
 
   try {
     const existingUser = await User.findOne({ email });
     if (existingUser) {
       return res.status(400).json({ msg: 'User already exists' });
     }
-
+    console.log(req.body,"")
     const hashedPassword = await bcrypt.hash(password, 10);
 
     const user = new User({
-      fullname,
+      fullName,
       mobileNumber,
       email,
       password: hashedPassword,
@@ -27,7 +27,7 @@ exports.registerUser = async (req, res) => {
       expiresIn: '1h',
     });
 
-    res.json({ token, userId: user._id });
+    res.status(200).json({ token, user ,msg: 'Login successfully' });
   } catch (error) {
     res.status(500).json({ error: 'Server error' });
   }
@@ -36,9 +36,9 @@ exports.registerUser = async (req, res) => {
 // Login User
 exports.loginUser = async (req, res) => {
   const { email, password } = req.body;
-
   try {
     const user = await User.findOne({ email });
+    console.log(req.body,user)
     if (!user) {
       return res.status(400).json({ msg: 'User not found' });
     }
@@ -52,7 +52,7 @@ exports.loginUser = async (req, res) => {
       expiresIn: '1h',
     });
 
-    res.json({ token, userId: user._id });
+    res.status(200).json({ token,user,msg:"Login Successful" });
   } catch (error) {
     res.status(500).json({ error: 'Server error' });
   }

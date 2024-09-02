@@ -5,7 +5,7 @@ exports.jobSeeker = async (req, res) => {
   try {
     const upload = await cloudinary.v2.uploader.upload(req.file.path);
     let resume = upload.secure_url;
-    console.log(resume, "resume");
+    // console.log(resume, "resume");
     const newJobSeeker = new JobSeeker({
       fullName: req.body.fullName,
       email: req.body.email,
@@ -18,7 +18,7 @@ exports.jobSeeker = async (req, res) => {
     });
 
     await newJobSeeker.save();
-    console.log(newJobSeeker, "newJobSeekernewJobSeeker");
+    // console.log(newJobSeeker, "newJobSeekernewJobSeeker");
     res
       .status(201)
       .json({ message: "Job Seeker information saved successfully." });
