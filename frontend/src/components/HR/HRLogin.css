@@ -21,7 +21,7 @@
    position: relative;
    display: flex;
    flex-direction: column;
-   padding: 0px 22px 0px;
+   padding: 8px 22px 8px;
    gap: 10px;
    text-align: center;
  }

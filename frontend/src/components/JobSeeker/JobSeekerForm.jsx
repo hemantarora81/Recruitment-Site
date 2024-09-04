@@ -272,7 +272,7 @@
 // };
 
 // export default JobSeekerForm;
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import axios from "axios";
 import "./JobSeeker.css";
 import Alert from "../../Common/Alerts/Alert";
@@ -282,6 +282,7 @@ const JobSeekerForm = () => {
   const [alertType, setAlertType] = useState("");
   const [postLoading, setPostLoading] = useState(false);
   const [validationErrors, setValidationErrors] = useState({});
+  const resumeRef = useRef(null);
   const [data, setData] = useState({
     fullName: "",
     email: "",
@@ -374,6 +375,19 @@ const JobSeekerForm = () => {
         if (response.status === 200) {
           setAlertMessage(response.data.msg);
           setAlertType("success");
+          setData({
+              fullName: "",
+              email: "",
+              mobile: "",
+              qualification: "",
+              experience: "",
+              designation: "",
+              gender: "",
+              resume: null,
+          })
+          if(resumeRef?.current){
+            resumeRef.current.value=null;
+          }
         }
         setPostLoading(false);
         window.scrollTo(0, 0);
@@ -387,11 +401,12 @@ const JobSeekerForm = () => {
   };
 
   return (
-    <section className="job-form shadow-blue-200 shadow-md p-5 rounded-md">
-      {alertMessage && <Alert message={alertMessage} type={alertType} />}
+    <section className="job-form shadow-blue-200 shadow-md px-5 py-2 rounded-md">
+     
       <header className="text-lg font-semibold text-center mb-5">
         Registration Form
       </header>
+      {alertMessage && <Alert message={alertMessage} type={alertType} />}
       <div className="form space-y-0">
         <div className="input-box">
           <label className="block mb-1">
@@ -421,7 +436,7 @@ const JobSeekerForm = () => {
               value={data.mobile || ""}
               onChange={handleInputChange}
               placeholder="Enter phone number"
-              type="tel"
+              type="number"
               className="w-full p-2 border border-gray-300 rounded-md"
             />
             {validationErrors.mobile && (
@@ -549,10 +564,13 @@ const JobSeekerForm = () => {
           </label>
           <input
             required
+            style={{paddingLeft:0,height:27}}
+            className="flex w-full rounded-md border  border-gray-300 border-input bg-white text-sm text-gray-400 file:border-0 file:bg-black file:text-white file:text-base file:font-normal"
             name="resume"
             type="file"
+            ref={resumeRef}
             onChange={handleFileChange}
-            className="w-full p-2 border border-gray-300 rounded-md"
+            accept="application/pdf"
           />
           {validationErrors.resume && (
             <span className="text-red-600 font-serif my-2">

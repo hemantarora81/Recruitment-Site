@@ -395,7 +395,7 @@ const HRSignupLogin = () => {
           ) : (
             <button 
               onClick={(e) => handleSubmit(e)}
-              className="w-full p-2 mt-4 bg-blue-500 hover:bg-blue-600 text-white rounded-md"
+              className="w-full p-2 mt-3 bg-blue-500 hover:bg-blue-600 text-white rounded-md"
             >
               {isLogin ? 'Login' : 'Sign up'}
             </button>
