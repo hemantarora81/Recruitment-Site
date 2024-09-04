@@ -14,14 +14,15 @@
    border-radius: 16px;
    color: #010101;
    margin-inline: auto;
+   /* height: 489px; */
  }
  
  .form {
    position: relative;
    display: flex;
    flex-direction: column;
-   padding: 12px 24px 24px;
-   gap: 16px;
+   padding: 0px 22px 0px;
+   gap: 10px;
    text-align: center;
  }
  

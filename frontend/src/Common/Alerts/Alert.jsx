@@ -24,7 +24,7 @@ const Alert = ({ message, type }) => {
       </svg>
       <span className="sr-only">Info</span>
       <div>
-        <span className="font-medium">{type === "success" ? "Success!" : "Error!"}</span> {message}
+        <span className="font-medium">  {type ? (type === "success" ? "Success!" : "Error!") : ""}</span> {message}
       </div>
     </div>
   );
