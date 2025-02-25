@@ -8,7 +8,8 @@ const jobSeekerSchema = new mongoose.Schema({
     experience: { type: String },
     designation: { type: String },
     gender: { type: String },
-    resume: { type: String, required: true }
+    resume: { type: String, required: true },
+    resumeFilename: { type: String, required: true },
 });
 
 module.exports = mongoose.model('JobSeeker', jobSeekerSchema);
