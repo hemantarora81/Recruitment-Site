@@ -365,7 +365,7 @@ const JobSeekerForm = () => {
 
     axios({
       method: "POST",
-      url: `${process.env.REACT_APP_BASE_URL}/jobseeker`,
+      url: `/jobseeker`,
       data: formData,
       headers: {
         "Content-Type": "multipart/form-data",

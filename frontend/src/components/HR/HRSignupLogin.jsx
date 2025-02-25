@@ -185,8 +185,8 @@ import Alert from '../../Common/Alerts/Alert';
 const HRSignupLogin = () => {
   const navigate = useNavigate();
   const [alertMessage, setAlertMessage] = useState("");
-  const [isLoading, setisLoading] = useState(false);
   const [alertType, setAlertType] = useState("");
+  const [isLoading, setisLoading] = useState(false);
   const [isLogin, setIsLogin] = useState(false);
   const [data, setData] = useState({
     fullName: '',
@@ -236,7 +236,7 @@ const HRSignupLogin = () => {
 
   const handleSubmit = async(e) => {
     e.preventDefault();
-    const url = isLogin  ? `${process.env.REACT_APP_BASE_URL}/login`  : `${process.env.REACT_APP_BASE_URL}/register`;
+    const url = isLogin  ? `/login`  : `/register`;
 
     const formData = isLogin 
       ? { email: data.email, password: data.password } 
