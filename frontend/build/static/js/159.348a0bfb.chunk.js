@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkfrontend=self.webpackChunkfrontend||[]).push([[159],{159:(e,n,s)=>{s.r(n),s.d(n,{default:()=>r});s(950);var d=s(414);const r=()=>(0,d.jsx)("div",{children:"HRPage"})}}]);
