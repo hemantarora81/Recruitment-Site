@@ -51,11 +51,11 @@ const Navbar = () => {
                   <Link to="/" className="text-white hover:underline px-3 py-2 rounded-md text-sm font-medium">
                     Home
                   </Link>
-                  <Link to="/job-seeker" className="text-white hover:underline px-3 py-2 rounded-md text-sm font-medium">
-                    Job Seeker
+                  <Link to="/candidate-form" className="text-white hover:underline px-3 py-2 rounded-md text-sm font-medium">
+                    Candidate Form
                   </Link>
-                  <Link to="/hr-dashboard" className="text-white hover:underline px-3 py-2 rounded-md text-sm font-medium">
-                    HR
+                  <Link to="/hr-form" className="text-white hover:underline px-3 py-2 rounded-md text-sm font-medium">
+                    HR Signup
                   </Link>
                 </>
               )}

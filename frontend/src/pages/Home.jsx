@@ -1,9 +1,12 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
-
+import Footer from "../Common/Footer";
+import { FaLinkedin, FaGithub, FaHackerrank, FaInstagram } from "react-icons/fa";
 const Home = () => {
   const navigate = useNavigate();
-  useEffect(() => {
+
+
+  React.useEffect(() => {
     localStorage.clear();
   }, []);
   return (
@@ -25,7 +28,7 @@ const Home = () => {
               For Job Seekers
             </a>
             <a
-              href="#CTAHR"
+              href="/hr-form"
               className="bg-white text-red-500 px-4 py-2 rounded-md hover:bg-red-500 hover:text-white transition-all duration-300 ease-in-out hover:scale-110 hover:shadow-xl"
             >
               For HR
@@ -133,8 +136,8 @@ const Home = () => {
           <p className="mt-4 text-xl">
             Have questions or need assistance? Reach out to us!
           </p>
-          <p className="mt-2">Email: support@example.com</p>
-          <p className="mt-2">Phone: (123) 456-7890</p>
+          <p className="mt-2">Email: <a className=" underline" href="mailto:hemantarorawork@gmail.com">hemantarorawork@gmail.com</a></p>
+          <p className="mt-2">Phone: <span className="underline">7982897861</span></p>
         </div>
       </section>
 
@@ -167,11 +170,33 @@ const Home = () => {
                 </li>
               </ul>
             </div>
+         <Footer/>
             <div>
               <h3 className="text-lg font-bold">Follow Us</h3>
-              <ul className="mt-4 flex space-x-4">
-                {/* <!-- Add social media icons --> */}
-              </ul>
+              {/* Social Media Icons */}
+        <ul className="mt-4 flex justify-center space-x-6">
+          <li>
+          <a href="https://www.linkedin.com/in/hemantarora00" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-400">
+  <FaLinkedin size={24} />
+</a>
+
+          </li>
+          <li>
+            <a href="https://www.github.com/hemantarora81" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-gray-100">
+              <FaGithub size={24} />
+            </a>
+          </li>
+          <li>
+            <a href="https://www.hackerrank.com/profile/Hemantarora" target="_blank" rel="noopener noreferrer" className="text-green-500 hover:text-green-400">
+              <FaHackerrank size={24} />
+            </a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/hemant.arora1?igsh=ZzM3NWwyMjc5dXll" target="_blank" rel="noopener noreferrer" className="text-pink-500 hover:text-pink-400">
+              <FaInstagram size={24} />
+            </a>
+          </li>
+        </ul>
             </div>
           </div>
         </div>

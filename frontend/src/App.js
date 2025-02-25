@@ -5,7 +5,6 @@ import Loading from './Common/Loader';
 import './App.css'
 // Lazy load the components
 const Home = React.lazy(() => import('./pages/Home'));
-const JobSeekerPage = React.lazy(() => import('./pages/JobSeekerPage'));
 const HRPage = React.lazy(() => import('./pages/HRPage'));
 const NotFound = React.lazy(() => import('./pages/NotFound'));
 const JobSeekerForm = React.lazy(() => import('./components/JobSeeker/JobSeekerForm'))
@@ -18,7 +17,6 @@ function App() {
       <Suspense fallback={<Loading/>}>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/job-seeker" element={<JobSeekerPage />} />
           <Route path="/candidate-form" element={<JobSeekerForm />} />
           <Route path="/hr" element={<HRPage />} />
           <Route path="/hr-form" element={<HRSignupLogin />} />

@@ -5,6 +5,7 @@ const path = require('path');
 const connectDB = require('./config/db'); 
 const authRoutes = require('./routes/authRoutes'); 
 const jobSeekerRoutes = require('./routes/jobSeekerRoutes'); 
+const ContactRoutes = require('./routes/ContactRoutes'); 
 const bodyParser = require('body-parser')
 
 const app = express();
@@ -15,6 +16,7 @@ app.use(cors())
 app.options('*', cors());
 app.use(express.json()); 
 app.use('/api', authRoutes);
+app.use("/api", ContactRoutes);
 app.use('/api', jobSeekerRoutes);
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
