@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "homepage": "/",
-  "proxy": "http://localhost:5000/api",
+  "proxy": "http://localhost:5000",
   "dependencies": {
     "@tanstack/react-table": "^8.21.2",
     "@testing-library/jest-dom": "^5.17.0",
