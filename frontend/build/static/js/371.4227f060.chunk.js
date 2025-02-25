@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkfrontend=self.webpackChunkfrontend||[]).push([[371],{371:(e,n,r)=>{r.r(n),r.d(n,{default:()=>d});r(950);var s=r(414);const d=()=>(0,s.jsx)("div",{children:"JobSeekerPage"})}}]);
