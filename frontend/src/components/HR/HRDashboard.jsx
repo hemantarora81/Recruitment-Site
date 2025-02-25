@@ -19,7 +19,7 @@ const HRDashboard = () => {
   },[])
   const fetchCandidates = async() =>{
     try {
-      const candidates = await axios.get(`/jobseekersInfo`);
+      const candidates = await axios.get(`/api/jobseekersInfo`);
       if(candidates.data.success){
         setCandidatesData(candidates.data.jobSeekers)
       }
