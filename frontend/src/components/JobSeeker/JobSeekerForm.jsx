@@ -407,7 +407,7 @@ const JobSeekerForm = () => {
         Registration Form
       </header>
       {alertMessage && <Alert message={alertMessage} type={alertType} />}
-      <div className="form space-y-0">
+      <form className="form space-y-0" onSubmit={validateForm}>
         <div className="input-box">
           <label className="block mb-1">
             Full Name<span className="text-red-600">*</span>
@@ -579,7 +579,7 @@ const JobSeekerForm = () => {
           )}
         </div>
         <button
-  onClick={validateForm}
+        type="submit"
   disabled={postLoading}
   className="w-full p-2 mt-4 bg-blue-500 hover:bg-blue-600 text-white rounded-md flex justify-center items-center"
 >
@@ -612,7 +612,7 @@ const JobSeekerForm = () => {
   )}
 </button>
 
-      </div>
+      </form>
     </section>
   );
 };

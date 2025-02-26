@@ -325,7 +325,7 @@ const HRSignupLogin = () => {
           <span className="subtitle">{!isLogin && 'Create a free account with your email.'}</span>
           {alertMessage && <Alert message={alertMessage} type={alertType} />}
 
-          <div className="form-container">
+          <form className="form-container" onSubmit={handleSubmit}>
             {!isLogin && (
               <>
                 <input
@@ -366,10 +366,10 @@ const HRSignupLogin = () => {
               onChange={handleChange}
               required
             />
-          </div>
+          </form>
 
           {isLoading ? (
-            <button className="flex justify-center gap-1 text-sm w-full place-items-center bg-blue-500 text-white rounded-lg p-2">
+            <button type="submit" className="flex justify-center gap-1 text-sm w-full place-items-center bg-blue-500 text-white rounded-lg p-2">
               <svg
                 className="animate-spin h-5 w-5 text-white mr-3"
                 xmlns="http://www.w3.org/2000/svg"
@@ -393,8 +393,8 @@ const HRSignupLogin = () => {
               {isLogin ? "Loading..." : "Creating Account..."}
             </button>
           ) : (
-            <button 
-              onClick={(e) => handleSubmit(e)}
+            <button type="submit"
+            //  onClick={(e) => handleSubmit(e)}
               className="w-full p-2 mt-3 bg-blue-500 hover:bg-blue-600 text-white rounded-md"
             >
               {isLogin ? 'Login' : 'Sign up'}
